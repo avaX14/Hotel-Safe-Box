@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/Hotel-Safe-Box/static/css/main.b9e64ffc.chunk.css",
+    "main.js": "/Hotel-Safe-Box/static/js/main.ee54312b.chunk.js",
+    "main.js.map": "/Hotel-Safe-Box/static/js/main.ee54312b.chunk.js.map",
+    "runtime-main.js": "/Hotel-Safe-Box/static/js/runtime-main.6800a124.js",
+    "runtime-main.js.map": "/Hotel-Safe-Box/static/js/runtime-main.6800a124.js.map",
+    "static/js/2.11f2833d.chunk.js": "/Hotel-Safe-Box/static/js/2.11f2833d.chunk.js",
+    "static/js/2.11f2833d.chunk.js.map": "/Hotel-Safe-Box/static/js/2.11f2833d.chunk.js.map",
+    "static/js/3.1425a6e9.chunk.js": "/Hotel-Safe-Box/static/js/3.1425a6e9.chunk.js",
+    "static/js/3.1425a6e9.chunk.js.map": "/Hotel-Safe-Box/static/js/3.1425a6e9.chunk.js.map",
+    "index.html": "/Hotel-Safe-Box/index.html",
+    "static/css/main.b9e64ffc.chunk.css.map": "/Hotel-Safe-Box/static/css/main.b9e64ffc.chunk.css.map",
+    "static/js/2.11f2833d.chunk.js.LICENSE.txt": "/Hotel-Safe-Box/static/js/2.11f2833d.chunk.js.LICENSE.txt",
+    "static/media/down-arrow.2058f471.svg": "/Hotel-Safe-Box/static/media/down-arrow.2058f471.svg",
+    "static/media/left-arrow.a972e666.svg": "/Hotel-Safe-Box/static/media/left-arrow.a972e666.svg",
+    "static/media/right-arrow.d396294f.svg": "/Hotel-Safe-Box/static/media/right-arrow.d396294f.svg",
+    "static/media/up-arrow.28048cc3.svg": "/Hotel-Safe-Box/static/media/up-arrow.28048cc3.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6800a124.js",
+    "static/js/2.11f2833d.chunk.js",
+    "static/css/main.b9e64ffc.chunk.css",
+    "static/js/main.ee54312b.chunk.js"
+  ]
+}
