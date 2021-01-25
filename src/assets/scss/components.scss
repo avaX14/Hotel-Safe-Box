@@ -1,16 +1,13 @@
 .safe-box-container {
-  background: $panel-body;
+  background: $safe-box-background-color;
   width: 400px;
-  margin: 0 auto;
   padding: 45px 70px;
-  position: relative;
   border: 2px solid $black;
-  border-radius: $panel-border-radius;
+  border-radius: $size-10;
 
-  &--serial-number {
-    color: $screen-text;
+  &-serial-number {
+    color: $display-text-color;
     font-weight: 500;
-    margin: 0;
     position: absolute;
     bottom: 8px;
     right: 12px;
@@ -18,37 +15,36 @@
 }
 
 .safe-box-display {
-  background-color: $screen-back-light-on;
-  padding: $screen-padding;
-  border-radius: $screen-border-radius;
-  margin-bottom: 40px;
-  min-height: $screen-min-height;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  box-shadow: $screen-box-shadow;
+  border: 1px solid $black;
+  background-color: $display-active-background;
+  padding: $size-10;
+  border-radius: $size-10;
+  margin-bottom: 40px;
+  min-height: $size-180;
 
   &-state,
   &-locked {
-    color: $screen-text;
+    color: $display-text-color;
     margin: 0;
   }
 
   &-locked {
-    font-size: $screen-lock-font-size;
+    font-size: $size-30;
   }
 
   &-state {
     text-align: right;
     font-weight: 500;
     text-overflow: ellipsis;
-    white-space: nowrap;
     overflow: hidden;
-    font-size: $screen-state-font-size;
+    font-size: $size-50;
   }
 
   &-idle {
-    background-color: $screen-back-light-off;
+    background-color: $display-idle-background;
   }
 }
 
@@ -61,18 +57,18 @@
 .safe-box-key {
   border: 1px solid $black;
   background-color: $gray;
-  color: $button-text;
+  color: $button-text-color;
   width: 30%;
   margin-bottom: 20px;
-  border-radius: $button-border-radius;
+  border-radius: $size-5;
   cursor: pointer;
   text-align: center;
   position: relative;
 
   &-value {
-    font-size: $button-font-size;
+    font-size: $size-60;
     margin: 0;
-    line-height: $button-size;
+    line-height: $size-100;
     font-weight: 500;
   }
 

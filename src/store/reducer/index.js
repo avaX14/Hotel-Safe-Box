@@ -42,12 +42,12 @@ const reducer = (state = SafeBoxState, { payload, type }) => {
         status: "Ready",
         password: "",
         isLoading: false,
+        isServiceMode: false,
       };
     case SAFE_BOX_UNLOCKING:
       return {
         ...state,
         status: "Unlocking",
-        currentPassword: payload,
         password: "",
         isLoading: true,
       };

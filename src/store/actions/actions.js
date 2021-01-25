@@ -87,7 +87,7 @@ export const lockingAction = (password) => {
 
 export const unlockingAction = (password) => {
   return (dispatch) => {
-    dispatch(safeBoxUnlocking(password));
+    dispatch(safeBoxUnlocking());
     setTimeout(() => {
       dispatch(safeBoxUnlocked());
     }, SAFE_BOX_LOCKING_TIMEOUT);
@@ -104,6 +104,9 @@ export const validateMasterCode = (password, serialNumber) => {
             dispatch(masterCodeValidationSuccessfull());
           } else {
             dispatch(safeBoxError());
+            setTimeout(() => {
+              dispatch(safeBoxLocked());
+            }, SAFE_BOX_LOCKING_TIMEOUT);
           }
         }, SAFE_BOX_LOCKING_TIMEOUT);
       })

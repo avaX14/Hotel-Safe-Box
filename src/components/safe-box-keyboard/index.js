@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   keys,
@@ -7,6 +7,7 @@ import {
   MASTER_CODE_PASSWORD_LENGTH,
   SAFE_BOX_IDLE_TIMEOUT,
   SERVICE_MODE_PASSWORD,
+  SAFE_BOX_LOCKING_TIMEOUT,
 } from "../../constants";
 import {
   setPassword,
@@ -16,6 +17,7 @@ import {
   unlockingAction,
   activateServiceMode,
   validateMasterCode,
+  safeBoxUnlocking,
 } from "../../store/actions/actions";
 import SafeBoxKey from "./SafeBoxKey";
 
@@ -23,32 +25,39 @@ const SafeBoxKeyboard = () => {
   const {
     isLoading,
     password,
-    isIdle,
     isLocked,
     currentPassword,
     isServiceMode,
     serialNumber,
   } = useSelector((state) => state);
   const dispatch = useDispatch();
-  let lockingTimer = null;
-  let timer = null;
+  const [lockingTimer, setLockingTimer] = useState(null);
+  const [masterCodeTimer, setMasterCodeTimer] = useState(null);
+  const [timer, setTimer] = useState(null);
 
   useEffect(() => {
-    lockingTimer = setTimeout(() => {
-      (password.length === SAFE_BOX_PASSWORD_LENGTH ||
-        password.length >= MASTER_CODE_PASSWORD_LENGTH) &&
-        !isLoading &&
-        lockUnlockBox();
-    }, SAFE_BOX_VALIDATE_PASSWORD_TIMEOUT);
+    setLockingTimer(
+      setTimeout(() => {
+        (password.length === SAFE_BOX_PASSWORD_LENGTH ||
+          password.length >= MASTER_CODE_PASSWORD_LENGTH) &&
+          !isLoading &&
+          lockUnlockBox();
+      }, SAFE_BOX_VALIDATE_PASSWORD_TIMEOUT)
+    );
   }, [password]);
 
+  useEffect(() => {
+    setIdle();
+  }, []);
+
   const setIdle = () => {
-    console.log("TIMEOUT", isIdle);
     clearTimeout(timer);
 
-    timer = setTimeout(() => {
-      dispatch(setIdleState());
-    }, SAFE_BOX_IDLE_TIMEOUT);
+    setTimer(
+      setTimeout(() => {
+        dispatch(setIdleState());
+      }, SAFE_BOX_IDLE_TIMEOUT)
+    );
   };
 
   const addKey = async (value) => {
@@ -56,13 +65,21 @@ const SafeBoxKeyboard = () => {
 
     if (isServiceMode) {
       dispatch(setPassword(value));
+      setIdle();
+
+      clearTimeout(masterCodeTimer);
+      setMasterCodeTimer(
+        setTimeout(() => {
+          dispatch(validateMasterCode(password, serialNumber));
+        }, SAFE_BOX_LOCKING_TIMEOUT)
+      );
       return;
     }
 
-    console.log("PROSAO DALJE");
-
-    if (password.length < SAFE_BOX_PASSWORD_LENGTH)
+    if (password.length < SAFE_BOX_PASSWORD_LENGTH) {
+      setIdle();
       dispatch(setPassword(value));
+    }
 
     if (password.length === SAFE_BOX_PASSWORD_LENGTH && value === "L") {
       clearTimeout(lockingTimer);
@@ -80,18 +97,16 @@ const SafeBoxKeyboard = () => {
       return;
     }
 
-    if (password.length >= MASTER_CODE_PASSWORD_LENGTH && isServiceMode) {
-      dispatch(validateMasterCode(password, serialNumber));
-      return;
-    }
-
     if (!isLocked && !isServiceMode) {
       dispatch(lockingAction(password));
     } else if (isLocked && !isServiceMode) {
       if (password === currentPassword) {
         dispatch(unlockingAction(password));
       } else {
-        dispatch(safeBoxError());
+        dispatch(safeBoxUnlocking(password));
+        setTimeout(() => {
+          dispatch(safeBoxError());
+        }, SAFE_BOX_LOCKING_TIMEOUT);
       }
     }
   };

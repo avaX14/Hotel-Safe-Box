@@ -1,27 +1,17 @@
-$font-family: "Roboto Mono", monospace;
 $dark-gray: #434343;
 $gray: #63636e;
 $white: #f1f1f1;
 $black: #0a0a0a;
+$button-text-color: #f3f3f3;
+$safe-box-background-color: #7d7d7f;
+$display-text-color: #434343;
+$display-idle-background: #47b2b2;
+$display-active-background: #7fffff;
 
-// Buttons (Keypads)
-$button-text: #f3f3f3;
-$button-border-radius: 5px;
-$button-font-size: 60px;
-$button-size: 100px;
-
-// Panel
-$panel-box-shadow: 0 0 20px $black;
-$panel-body: #7d7d7f;
-$panel-border-radius: 10px;
-
-// Screen
-$screen-text: #434343;
-$screen-back-light-off: #47b2b2;
-$screen-back-light-on: #7fffff;
-$screen-border-radius: 10px;
-$screen-box-shadow: 0 0 10px rgba($black, 0.5);
-$screen-padding: 10px;
-$screen-min-height: 180px;
-$screen-lock-font-size: 32px;
-$screen-state-font-size: 54px;
+$size-5: 5px;
+$size-10: 10px;
+$size-180: 180px;
+$size-30: 30px;
+$size-50: 55px;
+$size-60: 60px;
+$size-100: 100px;
