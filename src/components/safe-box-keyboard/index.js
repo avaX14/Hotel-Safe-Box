@@ -101,9 +101,9 @@ const SafeBoxKeyboard = () => {
       dispatch(lockingAction(password));
     } else if (isLocked && !isServiceMode) {
       if (password === currentPassword) {
-        dispatch(unlockingAction(password));
+        dispatch(unlockingAction());
       } else {
-        dispatch(safeBoxUnlocking(password));
+        dispatch(safeBoxUnlocking());
         setTimeout(() => {
           dispatch(safeBoxError());
         }, SAFE_BOX_LOCKING_TIMEOUT);
