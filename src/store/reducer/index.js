@@ -66,6 +66,7 @@ const reducer = (state = SafeBoxState, { payload, type }) => {
         status: "Error",
         password: "",
         isLoading: false,
+        isServiceMode: false,
       };
     case SET_IDLE_STATE:
       return { ...state, isIdle: true };
