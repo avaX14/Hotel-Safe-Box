@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Hotel-Safe-Box/static/css/main.8554034b.chunk.css",
-    "main.js": "/Hotel-Safe-Box/static/js/main.b66b2bab.chunk.js",
-    "main.js.map": "/Hotel-Safe-Box/static/js/main.b66b2bab.chunk.js.map",
+    "main.js": "/Hotel-Safe-Box/static/js/main.d1cf9a38.chunk.js",
+    "main.js.map": "/Hotel-Safe-Box/static/js/main.d1cf9a38.chunk.js.map",
     "runtime-main.js": "/Hotel-Safe-Box/static/js/runtime-main.6800a124.js",
     "runtime-main.js.map": "/Hotel-Safe-Box/static/js/runtime-main.6800a124.js.map",
     "static/js/2.11f2833d.chunk.js": "/Hotel-Safe-Box/static/js/2.11f2833d.chunk.js",
@@ -21,6 +21,6 @@
     "static/js/runtime-main.6800a124.js",
     "static/js/2.11f2833d.chunk.js",
     "static/css/main.8554034b.chunk.css",
-    "static/js/main.b66b2bab.chunk.js"
+    "static/js/main.d1cf9a38.chunk.js"
   ]
 }
